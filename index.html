@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>woninvoice</title>
+  <meta name="description" content="woninvoice turns a hubspot closed-won deal into a quickbooks online invoice." />
+  <style>
+    :root {
+      color-scheme: dark;
+      --bg: #0b0c0f;
+      --fg: #e8e6e3;
+      --muted: #9a958c;
+      --line: #24262c;
+      --accent: #e8e6e3;
+      --accent-fg: #0b0c0f;
+      --secondary: #1a1c22;
+    }
+    * { box-sizing: border-box; }
+    html, body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--bg);
+      color: var(--fg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.5;
+    }
+    main {
+      max-width: 40rem;
+      margin: 0 auto;
+      padding: 4.5rem 1.25rem 5rem;
+    }
+    .mark {
+      font-size: 0.85rem;
+      letter-spacing: 0.04em;
+      text-transform: lowercase;
+      color: var(--muted);
+      margin-bottom: 2.5rem;
+    }
+    h1 {
+      font-size: clamp(1.75rem, 4vw, 2.35rem);
+      font-weight: 600;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin: 0 0 1.25rem;
+      text-transform: lowercase;
+    }
+    .lede {
+      font-size: 1.05rem;
+      color: var(--muted);
+      margin: 0 0 2rem;
+      max-width: 34rem;
+      text-transform: lowercase;
+    }
+    .status {
+      display: inline-block;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 0.35rem 0.75rem;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 2.25rem;
+      text-transform: lowercase;
+    }
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+    a.btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.7rem 1.1rem;
+      border-radius: 0.55rem;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 550;
+      text-transform: lowercase;
+      border: 1px solid transparent;
+    }
+    a.btn.primary {
+      background: var(--accent);
+      color: var(--accent-fg);
+    }
+    a.btn.secondary {
+      background: var(--secondary);
+      color: var(--fg);
+      border-color: var(--line);
+    }
+    a.btn:hover { opacity: 0.92; }
+    a.btn:focus-visible {
+      outline: 2px solid var(--fg);
+      outline-offset: 2px;
+    }
+    footer {
+      margin-top: 3.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid var(--line);
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: lowercase;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="mark">woninvoice</div>
+    <h1>the deal is not done at closed-won. it's done when the invoice exists.</h1>
+    <p class="lede">woninvoice turns a hubspot closed-won deal into a quickbooks online invoice.</p>
+    <div class="status">validation landing · building in public</div>
+    <div class="actions">
+      <a class="btn primary" id="cta-fit" href="#">book a fit call</a>
+      <a class="btn secondary" id="cta-pay" href="#">get started</a>
+    </div>
+    <footer>no fake metrics. product first.</footer>
+  </main>
+  <script src="config.js"></script>
+  <script>
+    (function () {
+      var cfg = window.WONINVOICE_CONFIG || {};
+      var fit = document.getElementById("cta-fit");
+      var pay = document.getElementById("cta-pay");
+      if (cfg.calendlyUrl) {
+        fit.href = cfg.calendlyUrl;
+        fit.rel = "noopener noreferrer";
+        fit.target = "_blank";
+      } else {
+        fit.hidden = true;
+      }
+      if (cfg.stripeUrl) {
+        pay.href = cfg.stripeUrl;
+        pay.rel = "noopener noreferrer";
+        pay.target = "_blank";
+      } else {
+        pay.hidden = true;
+      }
+    })();
+  </script>
+</body>
+</html>

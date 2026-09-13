@@ -1,19 +1,19 @@
-# WonInvoice landing page
+# woninvoice
 
-Static validation landing page for **WonInvoice** (HubSpot Closed Won → QuickBooks Online invoices).
+the deal is not done at closed-won. it's done when the invoice exists.
 
-**Live repo:** https://github.com/draugrman411/woninvoice  
-**Pages (once enabled):** https://draugrman411.github.io/woninvoice/
+woninvoice turns a **hubspot closed-won deal** into a **quickbooks online invoice**.
 
-## CTAs (in `config.js`)
+this repo is the validation landing: the loop, then a fit call.
 
-- Calendly: https://calendly.com/draugrman311/woninvoice-fit-call
-- Stripe (test): https://buy.stripe.com/test_cNifZhbXGeGO0JW9HV2Z0O0
+## status
+- landing + cta config in this repo
+- building in public. no fake metrics.
 
-## Local
+## cta
+fit call: https://calendly.com/draugrman311/woninvoice-fit-call
 
-```bash
+## local
 python3 -m http.server 8080
-```
 
-No build step required.
+no build step.
